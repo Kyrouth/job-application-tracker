@@ -81,6 +81,20 @@ Make sure you have the following installed:
 
 7. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+8. Seed default data:
+
+To create the default board, columns, and other initial data, open the seed file and set the default `userId` to your user ID before running the seed script.
+
+The seed script uses this `userId` to associate the initial data with your account.
+
+Run the seed script with:
+
+```bash
+npm run seed:jobs
+```
+
+Make sure the `userId` is set correctly before running the script.
+
 ## Available Scripts
 
 | Command | Description |
