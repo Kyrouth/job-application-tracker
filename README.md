@@ -83,17 +83,17 @@ Make sure you have the following installed:
 
 8. Seed default data:
 
-To create the default board, columns, and other initial data, open the seed file and set the default `userId` to your user ID before running the seed script.
+    To create the default board, columns, and other initial data, open the seed file and set the default `userId` to your user ID before running the seed script.
 
-The seed script uses this `userId` to associate the initial data with your account.
+    The seed script uses this `userId` to associate the initial data with your account.
 
-Run the seed script with:
+    Run the seed script with:
 
-```bash
-npm run seed:jobs
-```
+    ```bash
+    npm run seed:jobs
+    ```
 
-Make sure the `userId` is set correctly before running the script.
+    Make sure the `userId` is set correctly before running the script.
 
 ## Available Scripts
 
