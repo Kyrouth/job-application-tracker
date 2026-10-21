@@ -15,8 +15,6 @@ import {
 import { Avatar, AvatarFallback } from "./ui/avatar";
 import { signOut, useSession } from "@/lib/auth/auth-client";
 import { useRouter } from "next/navigation";
-import { escapeApplescriptStringFragment } from "next/dist/next-devtools/server/launch-editor";
-
 export default function Navbar(): JSX.Element {
     const { data: session, isPending } = useSession();
     const router = useRouter();

@@ -6,6 +6,13 @@ export default async function Proxy(request: NextRequest) {
 
     const session = await getSession();
 
+    const isDashboardPage = request.nextUrl.pathname.startsWith("/dashboard");
+
+    if(isDashboardPage && !session?.user){
+        return NextResponse.redirect(new URL("/account/sign-in", request.url));
+    }
+
+
 
     const isSignInPage = request.nextUrl.pathname.startsWith("/account/sign-in");
     const isSignUpPage = request.nextUrl.pathname.startsWith("/account/sign-up");
