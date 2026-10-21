@@ -11,7 +11,10 @@ import {
 } from "./ui/dropdown-menu";
 import { Button, buttonVariants } from "./ui/button";
 import { cn } from "cn";
-import { deleteJobApplication, updateJobApplication } from "@/lib/actions/job-applications";
+import {
+    deleteJobApplication,
+    updateJobApplication,
+} from "@/lib/actions/job-applications";
 import {
     Dialog,
     DialogContent,
@@ -19,7 +22,6 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-    DialogTrigger,
 } from "./ui/dialog";
 import { ScrollArea } from "./ui/scroll-area";
 import { Label } from "./ui/label";
@@ -27,11 +29,16 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import React, { useState } from "react";
 
-type JobApplicationCardProps = { job: JobApplication; columns: Column[] };
+type JobApplicationCardProps = {
+    job: JobApplication;
+    columns: Column[];
+    dragHandleProps?: React.HTMLAttributes<HTMLElement>;
+};
 
 export default function JobApplicationCard({
     job,
     columns,
+    dragHandleProps
 }: JobApplicationCardProps) {
     const [isEditing, setIsEditing] = useState(false);
 
@@ -97,7 +104,7 @@ export default function JobApplicationCard({
 
     return (
         <>
-            <Card className="cursor-pointer transition-shadow hover:shadow-lg bg-white group shadow-sm">
+            <Card {...dragHandleProps} className="cursor-pointer transition-shadow hover:shadow-lg bg-white group shadow-sm">
                 <CardContent className="p-4">
                     <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
@@ -183,7 +190,10 @@ export default function JobApplicationCard({
                                             </>
                                         )}
 
-                                        <DropdownMenuItem className="text-destructive" onClick={handleDelete}>
+                                        <DropdownMenuItem
+                                            className="text-destructive"
+                                            onClick={handleDelete}
+                                        >
                                             <Trash2 className="mr-2 h-4 w-4" />
                                             Delete
                                         </DropdownMenuItem>
